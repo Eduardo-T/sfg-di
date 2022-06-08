@@ -1,4 +1,4 @@
-package me.eduardo.sfgdi.services;
+package com.eduardo.sfgdi.services;
 
 public interface PetService {
 

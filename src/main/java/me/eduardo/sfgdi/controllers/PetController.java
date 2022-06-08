@@ -1,6 +1,6 @@
 package me.eduardo.sfgdi.controllers;
 
-import me.eduardo.sfgdi.services.PetService;
+import com.eduardo.sfgdi.services.PetService;
 import org.springframework.stereotype.Controller;
 
 @Controller

@@ -1,4 +1,4 @@
-package me.eduardo.sfgdi.services;
+package com.eduardo.sfgdi.services;
 
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;

@@ -1,11 +1,13 @@
 package me.eduardo.sfgdi;
 
 import me.eduardo.sfgdi.controllers.*;
-import me.eduardo.sfgdi.services.PetService;
+import com.eduardo.sfgdi.services.PetService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
+@ComponentScan({"com.eduardo.sfgdi.services", "me.eduardo.sfgdi"})
 @SpringBootApplication
 public class SfgDiApplication {
 
