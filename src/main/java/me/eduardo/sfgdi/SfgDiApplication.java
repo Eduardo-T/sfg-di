@@ -2,6 +2,7 @@ package me.eduardo.sfgdi;
 
 import me.eduardo.sfgdi.controllers.*;
 import com.eduardo.sfgdi.services.PetService;
+import me.eduardo.sfgdi.datasource.FakeDataSource;
 import me.eduardo.sfgdi.services.PrototypeBean;
 import me.eduardo.sfgdi.services.SingletonBean;
 import org.springframework.boot.SpringApplication;
@@ -49,6 +50,11 @@ public class SfgDiApplication {
 		System.out.println(prototypeBean1.getMyScope());
 		PrototypeBean prototypeBean2 = context.getBean(PrototypeBean.class);
 		System.out.println(prototypeBean2.getMyScope());
+
+		FakeDataSource fakeDataSource = context.getBean(FakeDataSource.class);
+		System.out.println(fakeDataSource.getUsername());
+		System.out.println(fakeDataSource.getPassword());
+		System.out.println(fakeDataSource.getJdbcUrl());
 
 	}
 

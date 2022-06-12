@@ -3,14 +3,26 @@ package me.eduardo.sfgdi.config;
 import com.eduardo.sfgdi.services.DogPetService;
 import com.eduardo.sfgdi.services.PetService;
 import com.eduardo.sfgdi.services.PetServiceFactory;
+import me.eduardo.sfgdi.datasource.FakeDataSource;
 import me.eduardo.sfgdi.repositories.EnglishGreetingRepository;
 import me.eduardo.sfgdi.repositories.EnglishGreetingRepositoryImpl;
 import me.eduardo.sfgdi.services.*;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 
 @ImportResource("classpath:sfgdi-config.xml")
 @Configuration
 public class GreetingServiceConfig {
+
+    @Bean
+    FakeDataSource fakeDataSource(@Value("${guru.username}") String username, @Value("${guru.password}") String password, @Value("${guru.jdbc.url}") String jdbcUrl) {
+        FakeDataSource fakeDataSource = new FakeDataSource();
+        fakeDataSource.setUsername(username);
+        fakeDataSource.setPassword(password);
+        fakeDataSource.setJdbcUrl(jdbcUrl);
+
+        return fakeDataSource;
+    }
 
     @Profile({"dog", "default"})
     @Bean
@@ -45,7 +57,6 @@ public class GreetingServiceConfig {
     I18nEnglishGreetingService i18nService(EnglishGreetingRepository englishGreetingRepository) {
         return new I18nEnglishGreetingService(englishGreetingRepository);
     }
-
 
     @Primary
     @Bean
