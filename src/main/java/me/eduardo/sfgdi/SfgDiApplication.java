@@ -1,6 +1,7 @@
 package me.eduardo.sfgdi;
 
 import me.eduardo.sfgdi.config.SfgConfiguration;
+import me.eduardo.sfgdi.config.SfgConstructorConfig;
 import me.eduardo.sfgdi.controllers.*;
 import com.eduardo.sfgdi.services.PetService;
 import me.eduardo.sfgdi.datasource.FakeDataSource;
@@ -62,6 +63,12 @@ public class SfgDiApplication {
 		System.out.println(sfgConfiguration.getUsername());
 		System.out.println(sfgConfiguration.getPassword());
 		System.out.println(sfgConfiguration.getJdbcUrl());
+
+		System.out.println("-------------- Constructor Binding");
+		SfgConstructorConfig sfgConstructorConfig = context.getBean(SfgConstructorConfig.class);
+		System.out.println(sfgConstructorConfig.getUsername());
+		System.out.println(sfgConstructorConfig.getPassword());
+		System.out.println(sfgConstructorConfig.getJdbcUrl());
 
 	}
 
