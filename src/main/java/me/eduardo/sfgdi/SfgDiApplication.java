@@ -1,5 +1,6 @@
 package me.eduardo.sfgdi;
 
+import me.eduardo.sfgdi.config.SfgConfiguration;
 import me.eduardo.sfgdi.controllers.*;
 import com.eduardo.sfgdi.services.PetService;
 import me.eduardo.sfgdi.datasource.FakeDataSource;
@@ -55,6 +56,12 @@ public class SfgDiApplication {
 		System.out.println(fakeDataSource.getUsername());
 		System.out.println(fakeDataSource.getPassword());
 		System.out.println(fakeDataSource.getJdbcUrl());
+
+		System.out.println("-------------- Config Bean Properties");
+		SfgConfiguration sfgConfiguration = context.getBean(SfgConfiguration.class);
+		System.out.println(sfgConfiguration.getUsername());
+		System.out.println(sfgConfiguration.getPassword());
+		System.out.println(sfgConfiguration.getJdbcUrl());
 
 	}
 
